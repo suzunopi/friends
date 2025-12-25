@@ -215,7 +215,7 @@ button:hover {
   <span id="now-playing">♫ now playing: last christmas</span>
   <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5" />
 </div>
-<audio id="bgm" src="theresesong.mp3" loop></audio>
+<audio id="bgm" src="theresesong.MP3" loop></audio>
 
 <section class="songs-section">
   <h2>⋆⭒ 3 songs that remind me of you ⋆⭒</h2>
@@ -279,7 +279,7 @@ const musicPlayer = document.getElementById('music-player');
 const toggleBtn = document.getElementById('bgm-toggle');
 
 toggleBtn.onclick = () => {
-  if (bgm.paused) { bgm.play(); } else { bgm.pause(); }
+  if (bgm.paused) { bgm.play(); }
   musicPlayer.style.display = musicPlayer.style.display === 'flex' ? 'none' : 'flex';
 };
 
@@ -293,3 +293,4 @@ document.addEventListener('DOMContentLoaded', () => {
 </body>
 
 </html>
+

@@ -266,12 +266,17 @@ button:hover {
 function showPopup1() {
   const popup1 = document.getElementById('popup1');
   popup1.style.display = 'block';
-  setTimeout(() => { popup1.style.display = 'none'; }, 3000);
+  setTimeout(() => {
+    popup1.style.display = 'none';
+  }, 3000);
 }
+
 function showPopup2() {
   const popup2 = document.getElementById('popup2');
   popup2.style.display = 'block';
-  setTimeout(() => { popup2.style.display = 'none'; }, 3000);
+  setTimeout(() => {
+    popup2.style.display = 'none';
+  }, 3000);
 }
 
 const bgm = document.getElementById('bgm');
@@ -279,17 +284,30 @@ const musicPlayer = document.getElementById('music-player');
 const toggleBtn = document.getElementById('bgm-toggle');
 
 toggleBtn.onclick = () => {
-  if (bgm.paused) { bgm.play(); }
+  if (bgm.paused) {
+    bgm.play();
+  }
+
+  musicPlayer.style.display =
+    musicPlayer.style.display === 'flex' ? 'none' : 'flex';
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   const bgm = document.getElementById('bgm');
   const volumeSlider = document.getElementById('volume-slider');
+
+  // set initial volume
   bgm.volume = volumeSlider.value;
-  volumeSlider.addEventListener('input', () => { bgm.volume = volumeSlider.value; });
+
+  // update volume when slider moves
+  volumeSlider.addEventListener('input', () => {
+    bgm.volume = volumeSlider.value;
+  });
 });
 </script>
 </body>
 
 </html>
+
 
 

@@ -279,9 +279,7 @@ const musicPlayer = document.getElementById('music-player');
 const toggleBtn = document.getElementById('bgm-toggle');
 
 toggleBtn.onclick = () => {
-  if (bgm.paused) { bgm.play(); } else { bgm.pause(); }
-  musicPlayer.style.display = musicPlayer.style.display === 'flex' ? 'none' : 'flex';
-};
+  if (bgm.paused) { bgm.play(); }
 
 document.addEventListener('DOMContentLoaded', () => {
   const bgm = document.getElementById('bgm');
@@ -293,4 +291,5 @@ document.addEventListener('DOMContentLoaded', () => {
 </body>
 
 </html>
+
 

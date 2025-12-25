@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>aisha's page!</title>
 <link rel="manifest" href="/manifest.json">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/icon.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Lexend&display=swap" rel="stylesheet">
 <style>
 
@@ -263,34 +263,33 @@ button:hover {
 </div>
 
 <script>
+function showPopup1() {
+  const popup1 = document.getElementById('popup1');
+  popup1.style.display = 'block';
+  setTimeout(() => { popup1.style.display = 'none'; }, 3000);
+}
+function showPopup2() {
+  const popup2 = document.getElementById('popup2');
+  popup2.style.display = 'block';
+  setTimeout(() => { popup2.style.display = 'none'; }, 3000);
+}
+
 const bgm = document.getElementById('bgm');
 const musicPlayer = document.getElementById('music-player');
 const toggleBtn = document.getElementById('bgm-toggle');
-const volumeSlider = document.getElementById('volume-slider');
-
-// set initial volume
-bgm.volume = volumeSlider.value;
-
-// update volume when slider moves
-volumeSlider.addEventListener('input', () => {
-  bgm.volume = volumeSlider.value;
-});
 
 toggleBtn.onclick = () => {
-  if (bgm.paused) {
-    bgm.play().catch(err => console.log('autoplay blocked:', err));
-  } else {
-    bgm.pause();
-  }
-  // toggle player display
+  if (bgm.paused) { bgm.play(); } else { bgm.pause(); }
   musicPlayer.style.display = musicPlayer.style.display === 'flex' ? 'none' : 'flex';
 };
 
+document.addEventListener('DOMContentLoaded', () => {
+  const bgm = document.getElementById('bgm');
+  const volumeSlider = document.getElementById('volume-slider');
+  bgm.volume = volumeSlider.value;
+  volumeSlider.addEventListener('input', () => { bgm.volume = volumeSlider.value; });
+});
 </script>
 </body>
 
 </html>
-
-
-
-

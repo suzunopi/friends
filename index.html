@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>login!</title>
+  <link href="https://fonts.googleapis.com/css?family=Lexend" rel="stylesheet">
+  <style>
+    body {
+      font-family: Lexend;
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(-45deg, #DDAACC, #c797b7, #eeffee, #ffddee);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+	
+	input {
+	  font-family: Lexend;
+	  }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .popup-content {
+      background: #DDAACC;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      width: 500px;
+      color: white;
+      text-shadow: 0 4px 10px rgba(255, 192, 203, 0.5);
+    }
+
+    .login-box {
+      background: rgba(255,255,255,0.8);
+      width: 500px;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
+    }
+
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #c797b7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #error-msg {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- popup -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h1> MERRY CHRISTMAS!!! </h1>
+      <p>If you're reading this, that means you're <strong>one of the few (7) people</strong> I decided was special enough
+	     to receive this kind of greeting! So congrats, go tell all your friends that you finally got close with me! 
+		 (narcisstic ahh, I can't beat the so2 allegations) <br><br>On a serious note though, thank you so much for all the memories we've shared across this year :] 
+		 Whether we hang out often face-to-face or simply chat online, you're still one of the people, my people, that carved a special mark on my heart this 2025, so thanks :3
+		 <br><br>The rest will be said in your own individual pages! :pp If you're a long friend of mine, you should've already expected I'd do something like this I guess T-T
+		 <br><br>For the username, enter what I'd usually call you and for the password it's balls (I wanted to make you all type balls LMAO)</p>
+      <button onclick="closePopup()">continue</button>
+    </div>
+  </div>
+
+  <!-- login -->
+  <div id="loginBox" class="login-box">
+    <h2>login :3</h2>
+    <input type="text" id="username" placeholder="username">
+    <input type="password" id="password" placeholder="password">
+    <button onclick="login()">submit</button>
+    <p id="error-msg"></p>
+  </div>
+
+<script>
+  // show popup on load
+  window.onload = () => {
+    document.getElementById("popup").style.display = "flex";
+  };
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+
+  function login() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+    const errorMsg = document.getElementById("error-msg");
+
+    if(pass === "balls" && user === "ally") {
+      window.location.href = "ally.html"; 
+    } else if(pass === "balls" && user === "casey") {
+      window.location.href = "casey.html"; 
+    } else if(pass === "balls" && user === "charles") {
+      window.location.href = "charles.html";
+    } else if(pass === "balls" && user === "aisha") {
+      window.location.href = "aisha.html";
+    } else if(pass === "balls" && user === "bea") {
+      window.location.href = "bea.html";
+    } else if(pass === "balls" && user === "zander") {
+      window.location.href = "zander.html";
+    } else if(pass === "balls" && user === "therese") {
+      window.location.href = "therese.html";
+    } else {
+      errorMsg.innerText = "invalid username or password :( ensure there are no capital letters and it is your usual nickname!";
+    }
+  }
+</script>
+
+</body>
+</html>

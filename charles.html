@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>charles' page!</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Lexend&display=swap" rel="stylesheet">
+<style>
+
+/* 🌌 body + background (deep red) */
+body {
+  background: radial-gradient(circle at 20% 30%, #4b0f1f, #2a070f 60%, #120205 90%);
+  color: #ffe6eb;
+  margin:0; padding:0;
+  font-family: 'Quicksand', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ✨ sparkles (soft rose) */
+.sparkle {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: #ffb3c199;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: drift 12s linear infinite, pulse 3s ease-in-out infinite;
+}
+
+/* 🌊 container card */
+.container {
+  max-width: 650px;
+  margin: 60px auto;
+  padding: 25px;
+  background: rgba(90, 15, 30, 0.55);
+  border-radius: 25px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 45px rgba(150, 40, 70, 0.55);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  animation: float 7s ease-in-out infinite;
+}
+
+/* 🎆 headings */
+h1 {
+  font-family: 'Lexend', sans-serif;
+  font-size: 2.6em;
+  color: #ffeef2;
+  text-shadow: 0 0 14px #b0304a;
+  margin-bottom: 15px;
+}
+
+/* 💌 letters */
+.letter {
+  background: rgba(55, 10, 20, 0.85);
+  padding: 22px;
+  border-radius: 20px;
+  margin: 25px 0;
+  box-shadow: 0 0 35px rgba(170, 60, 90, 0.55);
+  font-size: 1.15em;
+  color: #ffe6eb;
+  line-height: 1.6;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.letter:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 45px rgba(200, 80, 110, 0.7);
+}
+
+/* 🎶 music toggle + player */
+#bgm-toggle {
+  position: fixed;
+  bottom:15px; left:20px;
+  font-size:28px;
+  cursor:pointer;
+  z-index:10000;
+  color:#ff9aad;
+  border:none;
+  background:none;
+  text-shadow: 0 0 6px #8a1f35;
+}
+#music-player {
+  position: fixed;
+  bottom:70px; left:20px;
+  background: rgba(70, 15, 30, 0.85);
+  backdrop-filter: blur(12px);
+  padding:12px 16px;
+  border-radius:15px;
+  display:none;
+  flex-direction: column;
+  align-items:flex-start;
+  z-index:9999;
+  color:#ffe6eb;
+}
+#volume-slider { width:250px; margin-top:6px; }
+
+/* 🎇 popup */
+.popup {
+  margin-top: 20px;
+  font-size: 1.2em;
+  display: none;
+  background: rgba(120, 30, 55, 0.9);
+  border-radius: 15px;
+  padding: 22px;
+  color:#ffe6eb;
+  text-align:center;
+  box-shadow:0 0 35px rgba(200, 80, 110, 0.65);
+  animation: fadeIn 0.4s ease;
+}
+
+/* 🎵 song section (same layout, red colors) */
+.songs-section {
+  background: rgba(70, 15, 30, 0.65);
+  padding:2rem;
+  border-radius:2rem;
+  box-shadow: 0 0 45px rgba(150, 40, 70, 0.55);
+  margin:3rem auto;
+  max-width:600px;
+}
+.songs-section h2 {
+  color:#ffeef2;
+  text-align:center;
+  font-size:1.9rem;
+  margin-bottom:1.6rem;
+  text-shadow:0 0 12px #b0304a;
+}
+.song-carousel .song {
+  flex:0 0 45vw;
+  scroll-snap-align:center;
+  padding:1rem;
+  background: rgba(90, 20, 40, 0.85);
+  border-radius:1rem;
+  box-shadow:0 0 35px rgba(180, 70, 100, 0.6);
+}
+.song-carousel .song:hover {
+  transform: scale(1.05);
+}
+
+/* 💖 button */
+button {
+  background: linear-gradient(135deg,#b0304a,#6b1326);
+  border:none;
+  border-radius:25px;
+  padding:12px 22px;
+  cursor:pointer;
+  color:#fff;
+  font-size:1rem;
+  margin-top:12px;
+  box-shadow:0 0 25px rgba(170, 60, 90, 0.6);
+  transition:0.3s ease;
+}
+button:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 40px rgba(220, 100, 130, 0.8);
+}
+
+/* 🖼 image */
+.img-round {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px rgba(200, 80, 120, 0.45);
+}
+
+
+</style>
+</head>
+<body>
+<!-- sparkles -->
+<div class="sparkle" style="top:30px; left:60px;"></div>
+<div class="sparkle" style="top:120px; left:180px;"></div>
+<div class="sparkle" style="top:220px; left:320px;"></div>
+<div class="sparkle" style="top:70px; left:420px;"></div>
+<div class="sparkle" style="top:270px; left:520px;"></div>
+
+<div class="container">
+  <h1>merry christmas, charles!</h1>
+  <p>a special little page just for you 💖</p>
+
+  <div class="letter">
+    <h2>my original pookie ;p</h2>
+    <p>I hope this page makes you smile! <br> I prepared this especially for you, saur enjoy it :p
+	<br>HELLOOOO CHAAAAAAAAAAARLES!! Salamat nga ulit sa kinder vro it was so yummy :D ANYWAY
+	to the real point of this website! HI! Thank you saur much for always being a reliable and fun
+	person to be with, I know we don't really hang out too often nowadays but I always have a good
+	time whenever I hang out with youuuu so yeah :]. I hope we make more memories in the
+	future rawrawrarwarawrrawr!!!!!!!!!!</p>
+  </div>
+
+  <button onclick="showPopup1()">click me for a surprise :p</button>
+  <div class="popup" id="popup1">i love you :3</div>
+</div>
+
+<button id="bgm-toggle">♫</button>
+<div id="music-player">
+  <span id="now-playing">♫ now playing: bad romance</span>
+  <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5" />
+</div>
+<audio id="bgm" src="charlessong.mp3" loop></audio>
+
+<section class="songs-section">
+  <h2>⋆⭒ 3 songs that remind me of you ⋆⭒</h2>
+  <div class="carousel-wrapper">
+    <div class="song-carousel">
+      <div class="spacer"></div>
+      <div class="song">
+        <iframe src="https://open.spotify.com/embed/track/0SiywuOBRcynK0uKGWdCnn?si=930b1c50f432499e" width="100%" height="80"></iframe>
+        <p><strong>Bad Romance</strong><br>This was OBVIOUSLY going to be here 😭, very self explanatory...</p>
+      </div>
+      <div class="song">
+        <iframe src="https://open.spotify.com/embed/track/4mUR5Tv0CvJtpmnUtzeIgd?si=6556229f54fd4921" width="100%" height="80"></iframe>
+        <p><strong>Garden of Eden</strong><br>SOOOOO, the thought process here was:<br>Do I put another Lady Gaga
+		song or do I find something that we'd relate to, and I thought that this was songs that remind me of YOU,
+		so, I decided on the Lady Gaga idea! HAWHAHHASHAH</p>
+      </div>
+      <div class="spacer"></div>
+      <div class="song">
+        <iframe src="https://open.spotify.com/embed/track/2LHNTC9QZxsL3nWpt8iaSR?si=80985104d95c4583" width="100%" height="80"></iframe>
+        <p><strong>Abracadabra/Anything else Lady Gaga</strong><br>exactly as I said earlier HELP, anything Lady Gaga reminds me of you omg</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+	<h1> my favorite picture in our chats: </h1>
+	<img src="charles.jpg" alt="charles" class="img-round" width="250" height="167">
+	<p> we're so auraful here vro</p>
+</div>
+
+<div class="container">
+	<h1> gwa calculator </h1>
+	<div class="letter">
+	<p> OKAY so this is mostly for fun but I thought why not have this like
+	wrapped style where I reveal how close I feel to you <strong>out of ten</strong> this year
+	LMAO, aim to increase it next year ahh... (BTW, for measuring, to be my friend
+	you need at least 7, and THAT is already high) To feed your curiosities, the
+	highest on the "leaderboard" (LOL) is 1.25! For fun, you can message me what you
+	think you'll get before opening it :p</p>
+	<button onclick="showPopup2()">reveal!</button>
+	<div class="popup" id="popup2"><strong>8.5 (1.50)</div></strong>
+  </div>
+</div>
+
+<script>
+function showPopup1() {
+  const popup1 = document.getElementById('popup1');
+  popup1.style.display = 'block';
+  setTimeout(() => { popup1.style.display = 'none'; }, 3000);
+}
+function showPopup2() {
+  const popup2 = document.getElementById('popup2');
+  popup2.style.display = 'block';
+  setTimeout(() => { popup2.style.display = 'none'; }, 3000);
+}
+
+const bgm = document.getElementById('bgm');
+const musicPlayer = document.getElementById('music-player');
+const toggleBtn = document.getElementById('bgm-toggle');
+
+toggleBtn.onclick = () => {
+  if (bgm.paused) { bgm.play(); } else { bgm.pause(); }
+  musicPlayer.style.display = musicPlayer.style.display === 'flex' ? 'none' : 'flex';
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const bgm = document.getElementById('bgm');
+  const volumeSlider = document.getElementById('volume-slider');
+  bgm.volume = volumeSlider.value;
+  volumeSlider.addEventListener('input', () => { bgm.volume = volumeSlider.value; });
+});
+</script>
+</body>
+</html>

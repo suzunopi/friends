@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>casey's page!</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Lexend&display=swap" rel="stylesheet">
+<style>
+/* 🌌 body + background */
+body {
+  background: radial-gradient(circle at 20% 30%,  #e0c0ff, #9b59b6 60%, #8e44ad 90%);
+  color: #f0e0ff;
+  margin:0; padding:0;
+  font-family: 'Quicksand', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ✨ animated sparkles */
+.sparkle {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: #ffffffaa;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: drift 10s linear infinite, pulse 2s ease-in-out infinite;
+}
+@keyframes drift {
+  0% { transform: translate(0,0) scale(0.5); opacity:0.4; }
+  50% { transform: translate(50px,-100px) scale(1); opacity:1; }
+  100% { transform: translate(-50px,-200px) scale(0.5); opacity:0; }
+}
+@keyframes pulse {
+  0%,100% { transform: scale(0.8); opacity:0.6; }
+  50% { transform: scale(1.2); opacity:1; }
+}
+
+/* 🌊 container card */
+.container {
+  max-width: 650px;
+  margin: 60px auto;
+  padding: 25px;
+  background: rgba(128,0,128,0.25);
+  border-radius: 25px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 50px rgba(155,89,182,0.45);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);} }
+
+/* 🎆 headings */
+h1 {
+  font-family: 'Lexend', sans-serif;
+  font-size: 2.8em;
+  color: #f0e0ff;
+  text-shadow: 0 0 15px #9b59b6, 0 0 25px #8e44ad;
+  margin-bottom: 15px;
+  animation: glowText 2.5s ease-in-out infinite alternate;
+}
+@keyframes glowText {
+  0% { text-shadow: 0 0 10px #9b59b6; }
+  100% { text-shadow: 0 0 25px #8e44ad; }
+}
+
+/* 💌 letters */
+.letter {
+  background: rgba(75,0,130,0.45);
+  padding: 22px;
+  border-radius: 20px;
+  margin: 25px 0;
+  box-shadow: 0 0 40px rgba(155,89,182,0.65);
+  font-size: 1.15em;
+  color: #f0e0ff;
+  line-height: 1.6;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.letter:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 50px rgba(186,85,211,0.75);
+}
+
+/* 🎶 music toggle + player */
+#bgm-toggle {
+  position: fixed; bottom:15px; left:20px;
+  font-size:28px; cursor:pointer; z-index:10000;
+  color:#d1b3ff; border:none; background:none;
+  text-shadow: 0 0 6px #8e44ad;
+}
+#music-player {
+  position: fixed; bottom:70px; left:20px;
+  background: rgba(128,0,128,0.25); backdrop-filter: blur(10px);
+  padding:12px 16px; border-radius:15px; display:none;
+  flex-direction: column; align-items:flex-start; z-index:9999;
+  color:#f0e0ff;
+}
+#volume-slider { width:250px; margin-top:6px; }
+
+/* 🎇 popup */
+.popup {
+  margin-top: 20px; font-size: 1.2em;
+  display: none; background: rgba(128,0,128,0.5);
+  border-radius: 15px; padding: 22px; color:#f0e0ff;
+  text-align:center; box-shadow:0 0 35px rgba(155,89,182,0.55);
+  animation: fadeIn 0.5s ease;
+}
+@keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+
+/* 🎵 song carousel */
+.songs-section {
+  background: rgba(128,0,128,0.25);
+  padding:2rem;
+  border-radius:2rem;
+  box-shadow: 0 0 50px rgba(155,89,182,0.45);
+  margin:3rem auto; max-width:600px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.songs-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 60px rgba(155,89,182,0.6);
+}
+.songs-section h2 {
+  color:#f0e0ff; text-align:center; font-size:1.9rem; margin-bottom:1.6rem;
+  text-shadow:0 0 15px #9b59b6;
+}
+.song-carousel .song {
+  flex:0 0 45vw;
+  scroll-snap-align:center;
+  padding:1rem;
+  background: rgba(128,0,128,0.5);
+  border-radius:1rem;
+  box-shadow:0 0 40px rgba(155,89,182,0.65);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.song-carousel .song:hover {
+  transform: scale(1.08);
+  box-shadow:0 0 50px rgba(186,85,211,0.75);
+}
+
+/* 💖 button */
+button {
+  background: linear-gradient(135deg,#9b59b6,#8e44ad);
+  border:none; border-radius:25px;
+  padding:12px 22px; cursor:pointer; color:#fff;
+  font-size:1rem; margin-top:12px;
+  box-shadow:0 0 25px rgba(155,89,182,0.45);
+  transition:0.3s ease;
+}
+button:hover { transform:scale(1.05); box-shadow:0 0 40px rgba(155,89,182,0.7); }
+
+.img-round {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px rgba(255, 192, 203, 0.8);
+}
+</style>
+</head>
+<body>
+
+<!-- sparkles -->
+<div class="sparkle" style="top:30px; left:60px;"></div>
+<div class="sparkle" style="top:120px; left:180px;"></div>
+<div class="sparkle" style="top:220px; left:320px;"></div>
+<div class="sparkle" style="top:70px; left:420px;"></div>
+<div class="sparkle" style="top:270px; left:520px;"></div>
+
+<div class="container">
+  <h1>merry christmas, casey!</h1>
+  <p>a special little page just for you 💖</p>
+
+  <div class="letter">
+    <h2>my dearest friend... (ena5 ahh)</h2>
+    <p>I hope this page makes you smile! <br> I prepared this especially for you, saur enjoy it :p
+	<br>HI caysay! WOW uhm lowkey 2024 me wouldn't really expect that our friendship has become this
+	way as of recent. You've honestly been a really consistent person in my life (the most consistent,
+	even) and I'm so so thankful for that RAWHRHGAHGHJS HAHAHWAHAHAH oa pero yeah thank you so much man
+	for like everything??? You're probably like one of the people that I ranted to the most this year
+	so I'm glad you didn't go insane too, or maybe you have? I hope that we do get to hang out irl
+	like you said T-T though I might struggling making that actually come true (I will try though,
+	diba it's the effort that counts :pp) /qj BUT yeah THANK YOU SO MUCH FOR EXISTING! :D</p>
+  </div>
+
+  <button onclick="showPopup1()">click me for a surprise :p</button>
+  <div class="popup" id="popup1">i love you /p :D</div>
+</div>
+
+<button id="bgm-toggle">♫</button>
+<div id="music-player">
+  <span id="now-playing">♫ now playing: niccori^^ survey team theme</span>
+  <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5" />
+</div>
+<audio id="bgm" src="caseysong.mp3" loop></audio>
+
+<section class="songs-section">
+  <h2>⋆⭒ 3 songs that remind me of you ⋆⭒</h2>
+  <div class="carousel-wrapper">
+    <div class="song-carousel">
+      <div class="spacer"></div>
+      <div class="song">
+        <iframe src="https://open.spotify.com/embed/track/640cOeje6h9PHYEBNnlXFw?si=0eb319913e654dca" width="100%" height="80"></iframe>
+        <p><strong>Niccori^^ Survey Theme Team</strong><br>I don't know LOL I feel like this had to be here,
+		I probably wouldn't have had an obsessed to this song phase if I didn't discover it from you.</p>
+      </div>
+      <div class="song">
+        <iframe src="https://open.spotify.com/embed/track/0axZ1pkds89AVTvko3zg7z?si=73815550b13d4a9b" width="100%" height="80"></iframe>
+        <p><strong>This = Love</strong><br>Cause love isn't always in the form of a romantic relationship,
+		like I first thought so when I liked you. Sometimes, true love can be found in friends/others too,
+		and I think you're one of the people that showed me that ironically well :D</p>
+      </div>
+      <div class="spacer"></div>
+      <div class="song">
+        <iframe src="https://open.spotify.com/embed/track/1Ukxccao1BlWrPhYkcXbwZ?si=4e6f30c2691348de" width="100%" height="80"></iframe>
+        <p><strong>From The Start</strong><br>Okay this leans vibe-wise and nostalgia-wise because it's
+		also the first song I dedicated to you, but yeah LMAO. At this point, this song is just your song now in my
+		point of view, so yippee!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+	<h1> my favorite picture in our chats: </h1>
+	<img src="casey.jpg" alt="casey" class="img-round" width="250" height="167">
+	<p> you genuinely look amazing with pink hair </p>
+</div>
+
+<div class="container">
+	<h1> gwa calculator </h1>
+	<div class="letter">
+	<p> OKAY so this is mostly for fun but I thought why not have this like
+	wrapped style where I reveal how close I feel to you <strong>out of ten</strong> this year
+	LMAO, aim to increase it next year ahh... (BTW, for measuring, to be my friend
+	you need at least 7, and THAT is already high) To feed your curiosities, the
+	highest on the "leaderboard" (LOL) is 1.25! For fun, you can message me what you
+	think you'll get before opening it :p</p>
+	<button onclick="showPopup2()">reveal!</button>
+	<div class="popup" id="popup2"><strong>9.2 (1.25)</div></strong>
+  </div>
+</div>
+
+<script>
+function showPopup1() {
+  const popup1 = document.getElementById('popup1');
+  popup1.style.display = 'block';
+  setTimeout(() => { popup1.style.display = 'none'; }, 3000);
+}
+function showPopup2() {
+  const popup2 = document.getElementById('popup2');
+  popup2.style.display = 'block';
+  setTimeout(() => { popup2.style.display = 'none'; }, 3000);
+}
+
+const bgm = document.getElementById('bgm');
+const musicPlayer = document.getElementById('music-player');
+const toggleBtn = document.getElementById('bgm-toggle');
+
+toggleBtn.onclick = () => {
+  if (bgm.paused) { bgm.play(); } else { bgm.pause(); }
+  musicPlayer.style.display = musicPlayer.style.display === 'flex' ? 'none' : 'flex';
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const bgm = document.getElementById('bgm');
+  const volumeSlider = document.getElementById('volume-slider');
+  bgm.volume = volumeSlider.value;
+  volumeSlider.addEventListener('input', () => { bgm.volume = volumeSlider.value; });
+});
+</script>
+</body>
+</html>

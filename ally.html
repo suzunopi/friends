@@ -195,7 +195,7 @@ button:hover { transform:scale(1.05); box-shadow:0 0 40px rgba(0,0,0,0.7); }
   <span id="now-playing">♫ now playing: bad</span>
   <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5" />
 </div>
-<audio id="bgm" src="allysong.mp3" loop></audio>
+<audio id="bgm" src="allysong.MP3" autoplay loop></audio>
 
 <section class="songs-section">
   <h2>⋆⭒ 3 songs that remind me of you ⋆⭒</h2>
@@ -264,8 +264,6 @@ const toggleBtn = document.getElementById('bgm-toggle');
 toggleBtn.onclick = () => {
   if (bgm.paused) {
     bgm.play();
-  } else {
-    bgm.pause();
   }
 
   musicPlayer.style.display =
@@ -289,5 +287,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
 
 

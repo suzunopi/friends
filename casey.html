@@ -196,7 +196,7 @@ button:hover { transform:scale(1.05); box-shadow:0 0 40px rgba(155,89,182,0.7); 
   <span id="now-playing">♫ now playing: niccori^^ survey team theme</span>
   <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5" />
 </div>
-<audio id="bgm" src="caseysong.mp3" loop></audio>
+<audio id="bgm" src="caseysong.mp3" autoplay loop></audio>
 
 <section class="songs-section">
   <h2>⋆⭒ 3 songs that remind me of you ⋆⭒</h2>
@@ -262,9 +262,7 @@ const musicPlayer = document.getElementById('music-player');
 const toggleBtn = document.getElementById('bgm-toggle');
 
 toggleBtn.onclick = () => {
-  if (bgm.paused) { bgm.play(); } else { bgm.pause(); }
-  musicPlayer.style.display = musicPlayer.style.display === 'flex' ? 'none' : 'flex';
-};
+  if (bgm.paused) { bgm.play(); }
 
 document.addEventListener('DOMContentLoaded', () => {
   const bgm = document.getElementById('bgm');
@@ -275,5 +273,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
 
 
